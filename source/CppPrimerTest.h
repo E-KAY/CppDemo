@@ -19,7 +19,13 @@ private:
 
     static void testPage20$$1_20_practice();
 
+    static void testPage20$$1_21_practice();
+
+    static void testPage20$$1_22_practice();
+
     static void testPage21$$1_23_practice();
+
+
 
 };
 

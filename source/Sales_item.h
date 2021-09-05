@@ -61,6 +61,8 @@ public:
 #endif
     Sales_item(const std::string &book) :
             bookNo(book), units_sold(0), revenue(0.0) { }
+    Sales_item(const std::string &book, const unsigned &sold, const double &money) :
+            bookNo(book), units_sold(sold), revenue(money) { }
     Sales_item(std::istream &is) { is >> *this; }
 public:
     // operations on Sales_item objects
@@ -96,8 +98,8 @@ inline bool
 operator==(const Sales_item &lhs, const Sales_item &rhs)
 {
     // must be made a friend of Sales_item
-    return lhs.units_sold == rhs.units_sold &&
-           lhs.revenue == rhs.revenue &&
+    return //lhs.units_sold == rhs.units_sold &&
+           //lhs.revenue == rhs.revenue &&
            lhs.isbn() == rhs.isbn();
 }
 
@@ -152,4 +154,10 @@ double Sales_item::avg_price() const
     else
         return 0;
 }
+
+bool operator<(const Sales_item &lhs, const Sales_item &rhs) {
+    // 这个判断，会决定 map find 的结果
+    return lhs.bookNo < rhs.bookNo;
+}
+
 #endif
