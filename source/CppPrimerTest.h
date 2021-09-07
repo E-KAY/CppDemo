@@ -25,6 +25,12 @@ private:
 
     static void testPage21$$1_23_practice();
 
+    static void testPage35$$2_3_practice();
+
+    static void testPage40$$2_10_practice();
+
+    static void testPage45$$2_14_practice();
+
 
 
 };

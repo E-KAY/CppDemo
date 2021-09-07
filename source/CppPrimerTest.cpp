@@ -93,12 +93,81 @@ void CppPrimerTest::testPage21$$1_23_practice() {
     }
 }
 
+void CppPrimerTest::testPage35$$2_3_practice() {
+    unsigned u = 10, u2 = 42;
+    cout << u2 - u << endl;
+    cout << u - u2 << endl;
+
+    int i = 10, i2 = 42;
+    cout << i2 - i << endl;
+    cout << i - i2 << endl;
+    cout << i - u << endl;
+    cout << u - i << endl;
+}
+
+
+string global_str;
+int global_int;
+
+void CppPrimerTest::testPage40$$2_10_practice() {
+    cout << "global_str default value is: " << global_str << endl;
+    cout << "global_int default is: " << global_int << endl;
+
+    int local_int;
+    string local_str;
+
+    cout << "local_int default value is: " << local_int << endl;
+    cout << "local_str default is: " << local_str << endl;
+}
+
+
+void CppPrimerTest::testPage45$$2_14_practice() {
+    int i = 100, sum = 0;
+    for (int i = 0; i != 10; ++i) {
+        sum += i;
+    }
+    cout << "i = " << i << ", sum = " << sum << endl;
+}
+
+
+// 这个是在验证 map 操作可行性时写的 测试代码，增加了传递三个参数的构造函数
+void testMap() {
+    map<Sales_item, int> itemMap;
+
+    Sales_item item1 = Sales_item("book1", 2, 2);
+    Sales_item item2 = Sales_item("book2", 3, 5.5);
+    Sales_item item3 = Sales_item("book3", 2, 6.66);
+
+    itemMap.insert(pair<Sales_item, int>(item1, 2));
+    itemMap.insert(pair<Sales_item, int>(item2, 4));
+    itemMap.insert(pair<Sales_item, int>(item3, 6));
+
+    cout << "itemMap size = " << itemMap.size() << endl;
+
+    Sales_item book2 = Sales_item("book2", 1, 1);
+    map<Sales_item, int>::iterator iter;
+    iter = itemMap.find(book2);
+
+    cout << "item == book2? result = " << (item1 == book2) << endl;
+
+    if (iter != itemMap.end()) {
+        cout << "itemMap find book2, sales : " << iter->second << endl;
+    } else {
+        cout << "itemMap do not find book2" << endl;
+    }
+}
+
+
 string CppPrimerTest::getInputTips() {
     return "1000: C++ Primer, Page 20, 1.5.2 Source Demo\n"
            "1001: C++ Primer, Page 20, 1.20 Practice\n"
            "1002: C++ Primer, Page 20, 1.21 Practice\n"
            "1003: C++ Primer, Page 20, 1.22 Practice\n"
-           "1004: C++ Primer, Page 21, 1.23 Practice\n";
+           "1004: C++ Primer, Page 21, 1.23 Practice\n"
+           "1005: C++ Primer, Page 35, 2.3 Practice\n"
+           "1006: C++ Primer, Page 40, 2.10 Practice\n"
+           "1007: C++ Primer, Page 45, 2.14 Practice\n"
+           "";
 }
 
 
@@ -118,6 +187,15 @@ void CppPrimerTest::runSourceDemo(const int &pValue) {
             break;
         case 1004:
             testPage21$$1_23_practice();
+            break;
+        case 1005:
+            testPage35$$2_3_practice();
+            break;
+        case 1006:
+            testPage40$$2_10_practice();
+            break;
+        case 1007:
+            testPage45$$2_14_practice();
             break;
         default:
             cout << "没有与数值[" << &pValue << "]对应的测试函数" << endl;
