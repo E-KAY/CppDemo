@@ -25,10 +25,59 @@ void testWhileCin() {
     cout << "Sum is: " << sum << endl;
 }
 
+void testPoint() {
+    // 正确用法：
+    const int a = 1;
+    const int *p_a = &a;
+    cout << "const int a = 1;" << endl;
+    cout << "const int *p_a = &a;" << endl;
+    cout << "*p_a = " << *p_a << ", p_a = " << p_a << "\n" << endl;;
+    // 错误用法：
+//    int *p_a = &a;
+//    int *p_a = a;
+//    const int *p_a = a;
+
+    // 正确用法：
+    int aa = 1;
+    int *p_aa = &aa;
+    const int *c_p_aa = p_aa;
+    cout << "int aa = 1;" << endl;
+    cout << "int *p_aa = &aa;" << endl;
+    cout << "const int *c_p_aa = p_aa;" << endl;
+    cout << "*c_p_aa = " << *c_p_aa << ", c_p_aa = " << c_p_aa << "\n" << endl;
+
+    int b = 2;
+    int *p_b;
+    cout << "int b = 2;" << endl;
+    cout << "int *p_b;" << endl;
+    cout << "*p_b = " << *p_b << ", p_b = " << p_b << "\n" << endl;
+
+    p_b = &b;
+    cout << "p_b = &b;" << endl;
+    cout << "*p_b = " << *p_b << ", p_b = " << p_b << "\n" << endl;
+
+    *p_b = b;
+    cout << "*p_b = b;" << endl;
+    cout << "*p_b = " << *p_b << ", p_b = " << p_b << "\n" << endl;
+
+    b = 3;
+    cout << "b = 3;" << endl;
+    cout << "*p_b = " << *p_b << ", p_b = " << p_b << "\n" << endl;
+
+    *p_b = 4;
+    cout << "*p_b = 4;" << endl;
+    cout << "*p_b = " << *p_b << ", p_b = " << p_b << "\n" << endl;
+
+    int **pp_c = &p_b;
+    cout << "int **pp_c = &p_b;" << endl;
+    cout << "**pp_c = " << **pp_c << ", pp_c = " << pp_c << "\n" << endl;
+}
+
 int main() {
     cout << "Enter the corresponding number to run the test:\n"
          << "1: Prient \"Hello, World!\" \n"
          << "2: Loop input through \"While\" \n"
+         << "3: Point Test \n"
          << CppPrimerTest::getInputTips()
          << endl;
 
@@ -40,6 +89,10 @@ int main() {
     }
     if (2 == value) {
         testWhileCin();
+        return 0;
+    }
+    if (3 == value) {
+        testPoint();
         return 0;
     }
 

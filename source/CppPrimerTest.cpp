@@ -129,6 +129,65 @@ void CppPrimerTest::testPage45$$2_14_practice() {
     cout << "i = " << i << ", sum = " << sum << endl;
 }
 
+void CppPrimerTest::testPage81$$3_2_2practice() {
+    // ===== 3.2 =====
+    string input;
+    while (getline(cin, input)) {
+        cout << "the input string are: " << input << endl;
+        if (input == "exit") {
+            break;
+        }
+    }
+
+    // ===== 3.4 =====
+    string word;
+    while (getline(cin, word, ' ')) {
+        if (word == "exit\n" || word == "exit") {
+            break;
+        }
+
+        cout << "the input word are: " << word << endl;
+    }
+
+    // ===== 3.5 =====
+    string line, result;
+    while (getline(cin, line)) {
+        if (line == "exit") {
+            break;
+        }
+        if (!result.empty()) {
+            result += " ";
+        }
+        result += line;
+    }
+    cout << "the splice string are: " << result << endl;
+}
+
+void CppPrimerTest::testPage81$$3_3_practice() {
+
+}
+
+
+void CppPrimerTest::testPage86$$3_6_practice() {
+    string str("This is a test string");
+    cout << "str: " << str << endl;
+
+    for (char &item: str) {
+        item = 'x';
+    }
+
+    cout << "after change 1, str: " << str << endl;
+
+    for (auto &item: str) {
+        item = 'X';
+    }
+
+    cout << "after change 2, str: " << str << endl;
+
+    string s;
+    cout << s[0] << endl;
+}
+
 
 // 这个是在验证 map 操作可行性时写的 测试代码，增加了传递三个参数的构造函数
 void testMap() {
@@ -159,14 +218,16 @@ void testMap() {
 
 
 string CppPrimerTest::getInputTips() {
-    return "1000: C++ Primer, Page 20, 1.5.2 Source Demo\n"
-           "1001: C++ Primer, Page 20, 1.20 Practice\n"
-           "1002: C++ Primer, Page 20, 1.21 Practice\n"
-           "1003: C++ Primer, Page 20, 1.22 Practice\n"
-           "1004: C++ Primer, Page 21, 1.23 Practice\n"
-           "1005: C++ Primer, Page 35, 2.3 Practice\n"
-           "1006: C++ Primer, Page 40, 2.10 Practice\n"
-           "1007: C++ Primer, Page 45, 2.14 Practice\n"
+    return "[   1000: C++ Primer, Page 20, 1.5.2 Source Demo ],"
+           "[   1001: C++ Primer, Page 20, 1.20 Practice     ]\n"
+           "[   1002: C++ Primer, Page 20, 1.21 Practice     ],"
+           "[   1003: C++ Primer, Page 20, 1.22 Practice     ]\n"
+           "[   1004: C++ Primer, Page 21, 1.23 Practice     ],"
+           "[   1005: C++ Primer, Page 35, 2.3 Practice      ]\n"
+           "[   1006: C++ Primer, Page 40, 2.10 Practice     ],"
+           "[   1007: C++ Primer, Page 45, 2.14 Practice     ]\n"
+           "[   1008: C++ Primer, Page 81, 3.2.2 Practice    ],"
+           "[   1009: C++ Primer, Page 86, 3.2.3 Practice    ]\n"
            "";
 }
 
@@ -197,9 +258,16 @@ void CppPrimerTest::runSourceDemo(const int &pValue) {
         case 1007:
             testPage45$$2_14_practice();
             break;
+        case 1008:
+            testPage81$$3_2_2practice();
+            break;
+        case 1009:
+            testPage86$$3_6_practice();
+            break;
         default:
             cout << "没有与数值[" << &pValue << "]对应的测试函数" << endl;
             break;
     }
 
 }
+

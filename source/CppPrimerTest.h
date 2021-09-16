@@ -3,8 +3,8 @@
 //
 #include <string>
 
-#ifndef UNTITLED_CPPPRIMERTEST_H
-#define UNTITLED_CPPPRIMERTEST_H
+#ifndef CPPDEMO_CPPPRIMERTEST_H
+#define CPPDEMO_CPPPRIMERTEST_H
 using namespace std;
 
 class CppPrimerTest {
@@ -31,6 +31,11 @@ private:
 
     static void testPage45$$2_14_practice();
 
+    static void testPage81$$3_2_2practice();
+
+    static void testPage81$$3_3_practice();
+
+    static void testPage86$$3_6_practice();
 
 
 };
